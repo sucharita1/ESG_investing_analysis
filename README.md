@@ -22,4 +22,5 @@ Do sustainability models help predict a company’s overall Performance?
 - Sucharita: Data Gathering (Yahoo Finance & MarketBeat)
 - Sachin: DBA (Create ERD and Mock up DB on PGAdmin)
 - Yicong: Mock up Machine Learning
-- Monica: Mock up visualizings (Tableau) 
+
+
