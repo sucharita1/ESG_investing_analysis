@@ -41,11 +41,14 @@ All the csv files can be found in **Resources/Postgres_Input**.
 
 - Based on the csv files an ERD diagram has been created which can be viewed here **ERD_TABLES** 
 
-
+## Mockup Database
+- An ASW RDS database is created with all the tables as shown in the ERD. The tables can be found in **AWS RDS DATBASE.png**
 - Used notebook **Connect_Database.ipynb**
     - to connect to aws server
     - select and print data from table
 
+## Mockup Machine learning
+- Before predicting the stocks using complex neural network models a linear regression model is used as a mockup,  which can be found in **Stock_Price_valuation.ipynb**
 
 Credits:
 - https://www.forbes.com/just-companies/#5d410d762bf0
