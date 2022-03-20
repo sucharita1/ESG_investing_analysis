@@ -55,3 +55,5 @@ Credits:
 - https://en.wikipedia.org/wiki/List_of_S%26P_500_companies
 - https://www.marketbeat.com/
 - https://ca.finance.yahoo.com/
+- https://www.investopedia.com/terms/d/ddm.asp#:~:text=The%20dividend%20discount%20model%20(DDM,back%20to%20their%20present%20value.
+- https://www.investopedia.com/ask/answers/100314/what-are-key-factors-cause-market-go-and-down.asp
