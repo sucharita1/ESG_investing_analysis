@@ -1,0 +1,114 @@
+TICKER,Name,Sector,P/E,P/S,Dividend Growth Rate,MV Price
+GOOG,Alphabet (Class C),Communication Services,112.2,2313,3%,1
+CHTR,Charter Communications,Communication Services,112.2,2313,3%,2
+CMCSA,Comcast,Communication Services,112.2,2313,3%,3
+DISCA,Discovery (Series A),Communication Services,112.2,2313,3%,4
+DISH,Dish Network,Communication Services,112.2,2313,3%,5
+EA,Electronic Arts,Communication Services,112.2,2313,3%,6
+FB,Facebook,Communication Services,4324,2313,3%,7
+FOX,Fox Corporation (Class B),Communication Services,112.2,2313,3%,8
+MTCH,Match Group,Communication Services,112.2,2313,3%,9
+NFLX,Netflix,Communication Services,112.2,2313,3%,10
+TMUS,T-Mobile US,Communication Services,112.2,92,3%,11
+TTWO,Take-Two Interactive,Communication Services,112.2,2313,3%,12
+AMZN,Amazon,Consumer Discretionary,112.2,2313,3%,13
+DLTR,Dollar Tree,Consumer Discretionary,112.2,2313,3%,14
+EBAY,eBay,Consumer Discretionary,3424,2313,3%,15
+HAS,Hasbro,Consumer Discretionary,112.2,2313,3%,16
+LKQ,LKQ Corporation,Consumer Discretionary,112.2,2313,3%,17
+NWL,Newell Brands,Consumer Discretionary,3423,312,3%,18
+ROST,Ross Stores,Consumer Discretionary,112.2,2313,3%,19
+TSLA,Tesla,Consumer Discretionary,112.2,2313,3%,20
+TSCO,Tractor Supply Company,Consumer Discretionary,112.2,231,3%,21
+ULTA,Ulta Beauty,Consumer Discretionary,112.2,2313,3%,22
+WBA,Walgreens Boots Alliance,Consumer Staples,112.2,2313,3%,23
+CBOE,Cboe Global Markets,Financials,112.2,2313,3%,24
+CINF,Cincinnati Financial,Financials,112.2,2313,3%,25
+CME,CME Group,Financials,112.2,2313,3%,26
+FITB,Fifth Third Bancorp,Financials,112.2,2313,3%,27
+HBAN,Huntington Bancshares,Financials,112.2,2313,3%,28
+MKTX,MarketAxess,Financials,112.2,2313,3%,29
+NDAQ,Nasdaq,Financials,112.2,2313,3%,30
+PBCT,People's United Financial,Financials,112.2,2313,3%,31
+PFG,Principal Financial Group,Financials,112.2,2313,3%,32
+SIVB,SVB Financial,Financials,112.2,2313,3%,33
+TROW,T. Rowe Price,Financials,112.2,2313,3%,34
+WLTW,Willis Towers Watson,Financials,112.2,2313,3%,35
+ZION,Zions Bancorp,Financials,112.2,2313,3%,36
+ABMD,Abiomed,Health Care,112.2,2313,3%,37
+ALGN,Align Technology,Health Care,112.2,2313,3%,38
+AMGN,Amgen,Health Care,112.2,2313,3%,39
+BIIB,Biogen,Health Care,112.2,213,3%,40
+CERN,Cerner,Health Care,112.2,2313,3%,41
+XRAY,Dentsply Sirona,Health Care,112.2,2313,3%,42
+DXCM,DexCom,Health Care,112.2,2313,3%,43
+GILD,Gilead Sciences,Health Care,112.2,12,3%,44
+HSIC,Henry Schein,Health Care,21,2313,3%,45
+HOLX,Hologic,Health Care,112.2,2313,3%,46
+IDXX,Idexx Laboratories,Health Care,112.2,2313,3%,47
+ILMN,Illumina,Health Care,112.2,2313,3%,48
+INCY,Incyte,Health Care,112.2,2313,3%,49
+ISRG,Intuitive Surgical,Health Care,112.2,2313,3%,50
+MRNA,Moderna,Health Care,112.2,2313,3%,51
+REGN,Regeneron Pharmaceuticals,Health Care,112.2,2313,3%,52
+VRTX,Vertex Pharmaceuticals,Health Care,112.2,2313,3%,53
+CTAS,Cintas Corporation,Industrials,112.2,2313,3%,54
+CPRT,Copart,Industrials,112.2,2313,3%,55
+EXPD,Expeditors,Industrials,112.2,2313,3%,56
+FAST,Fastenal,Industrials,112.2,2313,3%,57
+VRSK,Verisk Analytics,Industrials,112.2,2313,3%,58
+WDAY,Workday Inc.,Information Technology,112.2,2313,3%,59
+PANW,Palo Alto Networks Inc.,Information Technology,112.2,2313,3%,60
+ADBE,Adobe,Information Technology,112.2,2313,3%,61
+AMD,Advanced Micro Devices,Information Technology,112.2,2313,3%,62
+AKAM,Akamai Technologies,Information Technology,112.2,2313,3%,63
+ADI,Analog Devices,Information Technology,112.2,2313,3%,64
+ANSS,Ansys,Information Technology,112.2,2313,3%,65
+AAPL,Apple,Information Technology,112.2,2313,3%,66
+AMAT,Applied Materials,Information Technology,112.2,2313,3%,67
+ADSK,Autodesk,Information Technology,112.2,2313,3%,68
+ADP,Automatic Data Processing,Information Technology,112.2,2313,3%,69
+AVGO,Broadcom,Information Technology,112.2,23432,3%,70
+CDNS,Cadence Design Systems,Information Technology,112.2,2313,3%,71
+CDW,CDW,Information Technology,112.2,2313,3%,72
+CSCO,Cisco Systems,Information Technology,112.2,2313,3%,73
+CTXS,Citrix Systems,Information Technology,23423,2313,3%,74
+CTSH,Cognizant Technology Solutions,Information Technology,112.2,2313,3%,75
+ENPH,Enphase Energy,Information Technology,112.2,2313,3%,76
+FFIV,F5 Networks,Information Technology,112.2,3244,3%,77
+FISV,Fiserv,Information Technology,112.2,2313,3%,78
+FTNT,Fortinet,Information Technology,112.2,2313,3%,79
+INTC,Intel,Information Technology,112.2,2313,3%,80
+INTU,Intuit,Information Technology,112.2,2313,3%,81
+IPGP,IPG Photonics,Information Technology,112.2,2313,3%,82
+JKHY,Jack Henry & Associates,Information Technology,112.2,2313,3%,83
+KLAC,KLA Corporation,Information Technology,112.2,2313,3%,84
+LRCX,Lam Research,Information Technology,112.2,2313,3%,85
+MCHP,Microchip Technology,Information Technology,112.2,2313,3%,86
+MU,Micron Technology,Information Technology,112.2,2313,3%,87
+MSFT,Microsoft,Information Technology,112.2,2313,3%,88
+MPWR,Monolithic Power Systems,Information Technology,112.2,2313,3%,89
+NTAP,NetApp,Information Technology,112.2,2313,3%,90
+NLOK,NortonLifeLock,Information Technology,112.2,2313,3%,91
+NVDA,Nvidia,Information Technology,112.2,2313,3%,92
+NXPI,NXP,Information Technology,112.2,2313,3%,93
+PAYX,Paychex,Information Technology,112.2,2313,3%,94
+PYPL,PayPal,Information Technology,112.2,2313,3%,95
+PTC,PTC,Information Technology,112.2,2313,3%,96
+QRVO,Qorvo,Information Technology,112.2,2313,3%,97
+QCOM,Qualcomm,Information Technology,112.2,2313,3%,98
+STX,Seagate Technology,Information Technology,112.2,2313,3%,99
+SWKS,Skyworks Solutions,Information Technology,112.2,2313,3%,100
+SNPS,Synopsys,Information Technology,112.2,2313,3%,101
+TER,Teradyne,Information Technology,234234,2313,3%,102
+TXN,Texas Instruments,Information Technology,112.2,2313,3%,103
+TRMB,Trimble,Information Technology,112.2,2313,3%,104
+VRSN,Verisign,Information Technology,112.2,2313,3%,105
+WDC,Western Digital,Information Technology,112.2,2313,3%,106
+XLNX,Xilinx,Information Technology,112.2,2313,3%,107
+ZBRA,Zebra Technologies,Information Technology,112.2,2313,3%,108
+EQIX,Equinix,Real Estate,112.2,2313,3%,109
+HST,Host Hotels & Resorts,Real Estate,112.2,2313,3%,110
+SBAC,SBA Communications,Real Estate,112.2,2313,3%,111
+LNT,Alliant Energy,Utilities,112.2,2313,3%,112
+EXC,Exelon,Utilities,112.2,2313,3%,113
