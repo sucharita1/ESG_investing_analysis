@@ -16,9 +16,30 @@ Do sustainability models help predict a company’s overall Performance?
 - Employee retention
 - Customer retention
 
+## Branches
+### esg_data_extraction
+- Primary contributor: Sucharita Bhattacharjee
+- Primary focus: Data extraction pre-processing
+- Number of commits (as of March 20, 2022): 14
+
+### project_database
+- Primary contributor: Sachin
+- Primary focus: Database set up and data manipulation
+- Number of commits (as of March 20, 2022): 5
+
+### stock_price
+- Primary contributor: Yicong
+- Primary focus: Machine Learning module
+- Number of commits (as of March 20, 2022): 2
+
+### project_visualizations
+- Primary Contibutor: Monica
+- Primary Focus: Visualization & presentation of data
+- Number of commits (as of March 20, 2022): 13
+
 ## Week One Roles: 
 
-- Monica: GitHub set up, [Goggle Sheets tracker](https://docs.google.com/spreadsheets/d/1Tx0D1V8oL79opbk0O3R_YSJzzYVRPobm1d6glIpdfCw/edit?usp=sharing), [mock presentation](https://docs.google.com/presentation/d/1v7ZUbO-Ruz_PWBoh0hCuRYt4P9jFr0jfmyfjzph_FJQ/edit#slide=id.g1f88252dc4_0_662) for deliverables
+- Monica: GitHub set up, [Goggle Sheets tracker](https://docs.google.com/spreadsheets/d/1Tx0D1V8oL79opbk0O3R_YSJzzYVRPobm1d6glIpdfCw/edit?usp=sharing) for deliverables
 - Sucharita: Data Gathering (Yahoo Finance & MarketBeat)
 - Sachin: DBA (Create ERD and Mock up DB on PGAdmin)
 - Yicong: Mock up Machine Learning
@@ -55,5 +76,3 @@ Credits:
 - https://en.wikipedia.org/wiki/List_of_S%26P_500_companies
 - https://www.marketbeat.com/
 - https://ca.finance.yahoo.com/
-- https://www.investopedia.com/terms/d/ddm.asp#:~:text=The%20dividend%20discount%20model%20(DDM,back%20to%20their%20present%20value.
-- https://www.investopedia.com/ask/answers/100314/what-are-key-factors-cause-market-go-and-down.asp
