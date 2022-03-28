@@ -1,4 +1,4 @@
-TICKER,Animal Testing,Catholic Values,Controversial Weapons,Military Contracting,None,Nuclear,Small Arms,Thermal Coal
+Ticker,animalTesting,catholicValues,controversialWeapons,militaryContracting,None,Nuclear,smallArms,thermalCoal
 INTC,0,0,0,0,1,0,0,0
 MSFT,0,0,0,0,1,0,0,0
 BAC,0,0,0,0,1,0,0,0
@@ -60,7 +60,6 @@ EBAY,0,0,0,0,1,0,0,0
 ECL,1,0,0,0,0,0,0,0
 NDAQ,0,0,0,0,1,0,0,0
 DLR,0,0,0,0,1,0,0,0
-TT,0,0,0,0,1,0,0,0
 COF,0,0,0,0,1,0,0,0
 BBY,0,0,0,0,1,0,0,0
 KMB,1,0,0,0,0,0,0,0

@@ -1,4 +1,4 @@
-TICKER,Business Ethics Incidents,Customer Incidents,Employee Incidents,Environmental Supply Chain Incidents,Governance Incidents,None,Operations Incidents,Product & Service Incidents,Public Policy Incidents,Social Supply Chain Incidents,Society & Community Incidents
+Ticker,businessEthicsIncidents,customerIncidents,employeeIncidents,environmentalSupplyChainIncidents,governanceIncidents,None,operationsIncidents,productServiceIncidents,publicPolicyIncidents,socialSupplyChainIncidents,societyCommunityIncidents
 INTC,1,1,0,0,0,0,0,0,0,0,0
 MSFT,0,1,0,0,0,0,0,0,0,0,0
 BAC,1,1,0,0,0,0,0,0,0,0,1
@@ -60,7 +60,6 @@ EBAY,0,1,0,0,0,0,0,0,0,0,0
 ECL,0,1,0,0,0,0,0,0,0,0,0
 NDAQ,0,1,0,0,0,0,0,0,0,0,0
 DLR,0,0,0,0,0,1,0,0,0,0,0
-TT,1,0,1,0,0,0,0,0,0,0,0
 COF,0,1,0,0,0,0,0,0,0,0,0
 BBY,1,1,1,1,0,0,0,0,0,1,0
 KMB,0,1,0,0,0,0,0,0,0,1,0
