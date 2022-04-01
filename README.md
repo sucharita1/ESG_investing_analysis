@@ -71,8 +71,40 @@ All the csv files can be found in **Resources/Postgres_Input**.
 ## Mockup Machine learning
 - Before predicting the stocks using complex neural network models a linear regression model is used as a mockup,  which can be found in **Stock_Price_valuation.ipynb**
 
+## Week2 and Week3 roles:
+- The square will focus on the machine learning model. [Yicong]
+- The triangle role is involved in upscaling the project's database. [Sucharita]
+- The circle role will continue to refine the analysis. [Sachin]
+- The X role will focus on the team's dashboard. [Monica]
+  
+## Data Extraction and connecting to database
+- **Connect_Database.ipynb** takes the database password from you and connects to the database. If you want to connet to existing data. When you want to update the tables from time to time as company financials change you need to make the variable refresh_table = 'Y' it calls **api_data_extraction.ipynb**. It collects the data from yahoo finance using yfinance and yesg apis converts them into dataframes and cleans the data for null , duplicate values and wrong datatypes and returns the dataframes to **Connect_Database.ipynb**.**Connect_Database.ipynb** converts the dataframes into sql tables and loads them to AWS RDS.
+- If you dont want to update the database, **Connect_Database.ipynb** loads the existing tables and performs a sql join using sqlalchemy. Next it converts all the existing tables to dataframes for further analysis on other notebooks.
+- ERD and schema are available in **ERD and Schema** folder.
+
+
+## Machine learning model
+
+- **Predict_Stocks.ipynb** uses **Connect_Database.ipynb** to connect to existing database and load the daatframes. And then uses Ridge Model in regression to perform stock prediction. The images 
+
+
+
+## Analysis 
+- **ESG_Analysis.ipynb** uses **Connect_Database.ipynb** to to connect to existing database and load the daatframes. And then does analysis on te data to confirm that the data types are correct, there is no duplicate, null data, whether the esg scores have a normal distibution etc.
+
+
+## Dashboard
+- Tableau dashboard is available in **Dashboard** folder as **ESG_Analysis.twb**.
+
+
+
 Credits:
 - https://www.forbes.com/just-companies/#5d410d762bf0
 - https://en.wikipedia.org/wiki/List_of_S%26P_500_companies
 - https://www.marketbeat.com/
 - https://ca.finance.yahoo.com/
+- https://www.investopedia.com/terms/d/ddm.asp#:~:text=The%20dividend%20discount%20model%20(DDM,back%20to%20their%20present%20value.
+- https://www.investopedia.com/ask/answers/100314/what-are-key-factors-cause-market-go-and-down.asp
+- https://deepnote.com/@reslan-al-tinawi/Visualizing-data-with-seaborn-plotly-2hf4mb-sTnC9LyUXbTVKDw
+- https://community.plotly.com/t/how-to-visualize-3-columns-with-boolean-values/36181/2
+- https://help.tableau.com/current/pro/desktop/en-us/dashboards.htm
