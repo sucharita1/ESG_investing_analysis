@@ -78,19 +78,20 @@ All the csv files can be found in **Resources/Postgres_Input**.
 - The X role will focus on the team's dashboard. [Monica]
   
 ## Data Extraction and connecting to database
-- **Connect_Database.ipynb** takes the database password from you and connects to the database. If you want to connet to existing data. When you want to update the tables from time to time as company financials change you need to make the variable refresh_table = 'Y' it calls **api_data_extraction.ipynb**. It collects the data from yahoo finance using yfinance and yesg apis converts them into dataframes and cleans the data for null , duplicate values and wrong datatypes and returns the dataframes to **Connect_Database.ipynb**.**Connect_Database.ipynb** converts the dataframes into sql tables and loads them to AWS RDS.
+- **Connect_Database.ipynb** takes the database password from you and connects to the database. If you want to connect to existing data. When you want to update the tables from time to time as company financials change you need to make the variable refresh_table = 'Y' it calls **api_data_extraction.ipynb**. It collects the data from yahoo finance using yfinance and yesg apis converts them into dataframes and cleans the data for null , duplicate values and wrong datatypes and returns the dataframes to **Connect_Database.ipynb**.
+- **Connect_Database.ipynb** converts the dataframes into sql tables and loads them to AWS RDS.
 - If you dont want to update the database, **Connect_Database.ipynb** loads the existing tables and performs a sql join using sqlalchemy. Next it converts all the existing tables to dataframes for further analysis on other notebooks.
 - ERD and schema are available in **ERD and Schema** folder.
 
 
 ## Machine learning model
 
-- **Predict_Stocks.ipynb** uses **Connect_Database.ipynb** to connect to existing database and load the daatframes. And then uses Ridge Model in regression to perform stock prediction. The images 
+- **Predict_Stocks.ipynb** uses **Connect_Database.ipynb** to connect to existing AWS RDS tables and load the dataframes. And then uses Ridge Model in regression to perform stock prediction. 
 
 
 
 ## Analysis 
-- **ESG_Analysis.ipynb** uses **Connect_Database.ipynb** to to connect to existing database and load the daatframes. And then does analysis on te data to confirm that the data types are correct, there is no duplicate, null data, whether the esg scores have a normal distibution etc.
+- **ESG_Analysis.ipynb** uses **Connect_Database.ipynb** to to connect to existing AWS RDS tables and load the dataframes. And then does analysis on the data to confirm that the data types are correct, there is no duplicate, null data, whether the esg scores have a normal distibution etc.
 
 
 ## Dashboard
