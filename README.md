@@ -95,9 +95,9 @@ All the csv files can be found in **Resources/Postgres_Input**.
 - This method is comparable to companies(industry). We need to make sure all the companies in the same industry must have a similar size. ex: Sobey and Walmart are supermarkets, but one is national, and another is global
 - The K-value is 0.30, which is higher than 0.05. We cannot use this model to measure how many prices of ESG influences the stock price, but it shows us ESG has a negative relationship with the stock price.
 - Our model only uses 2022 information, which can show you a short-term relationship. If we can add past year information, it will establish an exact relationship.
-- ### Improvement
+### Improvement
 - More Data, Increasing Scope and Time. In this model, we use 89 companies, that are not enough, and we only get the 2022 ESG score because the old information is not for the public. 
-- ### Train and Test
+### Train and Test
 We have 89 stock info, we choose 21 as the Test set and other is Train set
 
 
