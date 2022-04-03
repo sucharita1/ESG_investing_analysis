@@ -90,6 +90,17 @@ All the csv files can be found in **Resources/Postgres_Input**.
 - We use three methods to calculate Stock price increse from investor confidence.Then, we choose one of them to calculate test and train. 
 - - 3 Methonds choose see **Stock_Price_valuation_ 3_Methods.ipynb**
 - - train and test see **PS_Method_Machine_Learning _Model.ipynb**
+### Preliminary Data Preprocessing 
+- Data clean: remove the null and inf 
+- Data untergration:
+        - Independent Variable: ESG Score
+        - Dependent Variable:Value of Stock Price change from investor confidence
+- Data reduction: Remove the outlier, if amount is over 3*averagae of Dependent Variable
+### Description of preliminary feature engineering and preliminary feature selection, including their decision-making process
+- We want to measure how ESG affects stock prices. Firstly, we should calculate passive value by stock valuation. Then, MV value minus passive value that is equal to value of Stock Price change from investor confidence. We get all finanical information from our dataset, then we calculate value of Stock Price change from investor confidence More detail and analysis. Finally, we create a Liner Regression.   see **Stock_Price_valuation_ 3_Methods.ipynb**
+- Why we choose EGS? ESG is not only reason to influence stock price,but it cover most of internal factors and it can also influence external factors. In our model, we assume the ESG is only reason to inflence the stock price
+### Model we choos
+Liner Regression
 ### Benefit
 - All the companies can use this method because sales are always positive. Like the dividend method, if the current year dividend is Zero, we cannot use it.
 - No human intervention is needed (automation)
@@ -98,6 +109,7 @@ All the csv files can be found in **Resources/Postgres_Input**.
 - This method is comparable to companies(industry). We need to make sure all the companies in the same industry must have a similar size. ex: Sobey and Walmart are supermarkets, but one is national, and another is global
 - The K-value is 0.30, which is higher than 0.05. We cannot use this model to measure how many prices of ESG influences the stock price, but it shows us ESG has a negative relationship with the stock price.
 - Our model only uses 2022 information, which can show you a short-term relationship. If we can add past year information, it will establish an exact relationship.
+- ESG is not only reason to influence stock price
 ### Improvement
 - More Data, Increasing Scope and Time. In this model, we use 89 companies, that are not enough, and we only get the 2022 ESG score because the old information is not for the public. 
 ### Train and Test
