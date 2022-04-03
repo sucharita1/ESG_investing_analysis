@@ -87,6 +87,9 @@ All the csv files can be found in **Resources/Postgres_Input**.
 ## Machine learning model
 
 - **Predict_Stocks.ipynb** uses **Connect_Database.ipynb** to connect to existing AWS RDS tables and load the dataframes. And then uses Ridge Model in regression to perform stock prediction. 
+- We use three methods to calculate Stock price increse from investor confidence.Then, we choose one of them to calculate test and train. 
+- - 3 Methonds choose see **Stock_Price_valuation_ 3_Methods.ipynb**
+- - train and test see **PS_Method_Machine_Learning _Model.ipynb**
 ### Benefit
 - All the companies can use this method because sales are always positive. Like the dividend method, if the current year dividend is Zero, we cannot use it.
 - No human intervention is needed (automation)
