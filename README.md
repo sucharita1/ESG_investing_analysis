@@ -93,8 +93,8 @@ All the csv files can be found in **Resources/Postgres_Input**.
 ### Preliminary Data Preprocessing 
 - Data clean: remove the null and inf 
 - Data untergration:
-        - - Independent Variable: ESG Score
-        - - Dependent Variable:Value of Stock Price change from investor confidence
+   - Independent Variable: ESG Score
+   - Dependent Variable:Value of Stock Price change from investor confidence
 - Data reduction: Remove the outlier, if amount is over 3*averagae of Dependent Variable
 ### Description of preliminary feature engineering and preliminary feature selection, including their decision-making process
 - We want to measure how ESG affects stock prices. Firstly, we should calculate passive value by stock valuation. Then, MV value minus passive value that is equal to value of Stock Price change from investor confidence. We get all finanical information from our dataset, then we calculate value of Stock Price change from investor confidence More detail and analysis. Finally, we create a Liner Regression.   see **Stock_Price_valuation_ 3_Methods.ipynb**
