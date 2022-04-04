@@ -120,8 +120,9 @@ We have 89 stock info, we choose 21 as the Test set and other is Train set
 - **ESG_Analysis.ipynb** uses **Connect_Database.ipynb** to to connect to existing AWS RDS tables and load the dataframes. And then does analysis on the data to confirm that the data types are correct, there is no duplicate, null data, whether the esg scores have a normal distibution etc.
 
 
-## Dashboard
-- Tableau dashboard is available in **Dashboard** folder as **ESG_Analysis.twb**.
+## Dashboard & Presentation
+- Our team presentation is located [here](https://github.com/mododds/Group_2_Project/blob/main/ESG%20-%20Group%202%20Project.pptx).
+- The Tableau dashboard is available in **Dashboard** folder as **[ESG_Analysis.twb](https://github.com/mododds/Group_2_Project/blob/main/Dashboard/ESG_Analysis.twb)**.
 
 
 
