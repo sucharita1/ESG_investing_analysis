@@ -71,8 +71,67 @@ All the csv files can be found in **Resources/Postgres_Input**.
 ## Mockup Machine learning
 - Before predicting the stocks using complex neural network models a linear regression model is used as a mockup,  which can be found in **Stock_Price_valuation.ipynb**
 
+## Week2 and Week3 roles:
+- The square will focus on the machine learning model. [Yicong]
+- The triangle role is involved in upscaling the project's database. [Sucharita]
+- The circle role will continue to refine the analysis. [Sachin]
+- The X role will focus on the team's dashboard. [Monica]
+  
+## Data Extraction and connecting to database
+- **Connect_Database.ipynb** takes the database password from you and connects to the database. If you want to connect to existing data. When you want to update the tables from time to time as company financials change you need to make the variable refresh_table = 'Y' it calls **api_data_extraction.ipynb**. It collects the data from yahoo finance using yfinance and yesg apis converts them into dataframes and cleans the data for null , duplicate values and wrong datatypes and returns the dataframes to **Connect_Database.ipynb**.
+- **Connect_Database.ipynb** converts the dataframes into sql tables and loads them to AWS RDS.
+- If you dont want to update the database, **Connect_Database.ipynb** loads the existing tables and performs a sql join using sqlalchemy. Next it converts all the existing tables to dataframes for further analysis on other notebooks.
+- ERD and schema are available in **ERD and Schema** folder.
+
+
+## Machine learning model
+
+- **Predict_Stocks.ipynb** uses **Connect_Database.ipynb** to connect to existing AWS RDS tables and load the dataframes. And then uses Ridge Model in regression to perform stock prediction. 
+- We use three methods to calculate Stock price increse from investor confidence.Then, we choose one of them to calculate test and train. 
+- - 3 Methonds choose see **Stock_Price_valuation_ 3_Methods.ipynb**
+- - train and test see **PS_Method_Machine_Learning _Model.ipynb**
+### Preliminary Data Preprocessing 
+- Data clean: remove the null and inf 
+- Data untergration:
+   - Independent Variable: ESG Score
+   - Dependent Variable:Value of Stock Price change from investor confidence
+- Data reduction: Remove the outlier, if amount is over 3*averagae of Dependent Variable
+### Description of preliminary feature engineering and preliminary feature selection, including their decision-making process
+- We want to measure how ESG affects stock prices. Firstly, we should calculate passive value by stock valuation. Then, MV value minus passive value that is equal to value of Stock Price change from investor confidence. We get all finanical information from our dataset, then we calculate value of Stock Price change from investor confidence More detail and analysis. Finally, we create a Liner Regression.   see **Stock_Price_valuation_ 3_Methods.ipynb**
+- Why we choose EGS? ESG is not only reason to influence stock price,but it cover most of internal factors and it can also influence external factors. In our model, we assume the ESG is only reason to inflence the stock price
+### Model we choos
+Liner Regression
+### Benefit
+- All the companies can use this method because sales are always positive. Like the dividend method, if the current year dividend is Zero, we cannot use it.
+- No human intervention is needed (automation)
+- It shows a negative relationship between the value of Stock Price increase from investor confidence and ESG Score.
+### Limitation
+- This method is comparable to companies(industry). We need to make sure all the companies in the same industry must have a similar size. ex: Sobey and Walmart are supermarkets, but one is national, and another is global
+- The K-value is 0.30, which is higher than 0.05. We cannot use this model to measure how many prices of ESG influences the stock price, but it shows us ESG has a negative relationship with the stock price.
+- Our model only uses 2022 information, which can show you a short-term relationship. If we can add past year information, it will establish an exact relationship.
+- ESG is not only reason to influence stock price
+### Improvement
+- More Data, Increasing Scope and Time. In this model, we use 89 companies, that are not enough, and we only get the 2022 ESG score because the old information is not for the public. 
+### Train and Test
+We have 89 stock info, we choose 21 as the Test set and other is Train set
+
+
+## Analysis 
+- **ESG_Analysis.ipynb** uses **Connect_Database.ipynb** to to connect to existing AWS RDS tables and load the dataframes. And then does analysis on the data to confirm that the data types are correct, there is no duplicate, null data, whether the esg scores have a normal distibution etc.
+
+
+## Dashboard
+- Tableau dashboard is available in **Dashboard** folder as **ESG_Analysis.twb**.
+
+
+
 Credits:
 - https://www.forbes.com/just-companies/#5d410d762bf0
 - https://en.wikipedia.org/wiki/List_of_S%26P_500_companies
 - https://www.marketbeat.com/
 - https://ca.finance.yahoo.com/
+- https://www.investopedia.com/terms/d/ddm.asp#:~:text=The%20dividend%20discount%20model%20(DDM,back%20to%20their%20present%20value.
+- https://www.investopedia.com/ask/answers/100314/what-are-key-factors-cause-market-go-and-down.asp
+- https://deepnote.com/@reslan-al-tinawi/Visualizing-data-with-seaborn-plotly-2hf4mb-sTnC9LyUXbTVKDw
+- https://community.plotly.com/t/how-to-visualize-3-columns-with-boolean-values/36181/2
+- https://help.tableau.com/current/pro/desktop/en-us/dashboards.htm
