@@ -1,7 +1,0 @@
-https://www.kdnuggets.com/2018/11/keras-long-short-term-memory-lstm-model-predict-stock-prices.html
-https://sijmenvdw.medium.com/using-an-lstm-for-stock-prediction-f395b72e6dcb
-https://ca.style.yahoo.com/esg-investing-135435590.html#:~:text=The%20letters%20%22ESG%22%20stand%20for,three%20categories%20to%20analyze%20stocks.
-https://ca.finance.yahoo.com/news/higher-sustainability-ratings-mean-lower-100000976.html
-https://en.wikipedia.org/wiki/Long_short-term_memory
-https://www.marketbeat.com/stocks/NYSE/HIG/sustainability/
-https://medium.com/@jamesbowden/extracting-esg-data-from-yahoo-finance-using-python-4834bc8db570
