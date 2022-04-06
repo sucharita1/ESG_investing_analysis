@@ -83,6 +83,11 @@ All the csv files can be found in **Resources/Postgres_Input**.
 - If you dont want to update the database, **Connect_Database.ipynb** loads the existing tables and performs a sql join using sqlalchemy. Next it converts all the existing tables to dataframes for further analysis on other notebooks.
 - ERD and schema are available in **ERD and Schema** folder.
 
+## Week 4 roles: 
+- The square will focus on the machine learning model. [Yicong]
+- The triangle role is involved in upscaling the project's database. [Sucharita]
+- The circle role will continue to refine the analysis. [Sachin]
+- The X role will focus on the team's dashboard. [Monica]
 
 ## Machine learning model
 
@@ -122,6 +127,7 @@ We have 89 stock info, we choose 21 as the Test set and other is Train set
 
 ## Dashboard & Presentation
 - Our team presentation is located [here](https://github.com/mododds/Group_2_Project/blob/main/ESG%20-%20Group%202%20Project.pptx).
+- [Google slides version](https://docs.google.com/presentation/d/1v7ZUbO-Ruz_PWBoh0hCuRYt4P9jFr0jfmyfjzph_FJQ/edit#slide=id.g1f88252dc4_0_203) of the presentation
 - The Tableau dashboard is available in **Dashboard** folder as **[ESG_Analysis.twb](https://github.com/mododds/Group_2_Project/blob/main/Dashboard/ESG_Analysis.twb)**.
 
 
