@@ -77,20 +77,19 @@ All the csv files can be found in **Resources/Postgres_Input**.
 - The circle role will continue to refine the analysis. [Sachin]
 - The X role will focus on the team's dashboard. [Monica]
   
-## Data Extraction and connecting to database
-- **Connect_Database.ipynb** takes the database password from you and connects to the database. If you want to connect to existing data. When you want to update the tables from time to time as company financials change you need to make the variable refresh_table = 'Y' it calls **api_data_extraction.ipynb**. It collects the data from yahoo finance using yfinance and yesg apis converts them into dataframes and cleans the data for null , duplicate values and wrong datatypes and returns the dataframes to **Connect_Database.ipynb**.
-- **Connect_Database.ipynb** converts the dataframes into sql tables and loads them to AWS RDS.
-- If you dont want to update the database, **Connect_Database.ipynb** loads the existing tables and performs a sql join using sqlalchemy. Next it converts all the existing tables to dataframes for further analysis on other notebooks.
-- ERD and schema are available in **ERD and Schema** folder.
-
 ## Week 4 roles: 
 - The square will focus on the machine learning model. [Yicong]
 - The triangle role is involved in upscaling the project's database. [Sucharita]
 - The circle role will continue to refine the analysis. [Sachin]
 - The X role will focus on the team's dashboard. [Monica]
 
-## Machine learning model
+## Data Extraction and connecting to database
+- **Connect_Database.ipynb** takes the database password from you and connects to the database. If you want to connect to existing data. When you want to update the tables from time to time as company financials change you need to make the variable refresh_table = 'Y' it calls **api_data_extraction.ipynb**. It collects the data from yahoo finance using yfinance and yesg apis converts them into dataframes and cleans the data for null , duplicate values and wrong datatypes and returns the dataframes to **Connect_Database.ipynb**.
+- **Connect_Database.ipynb** converts the dataframes into sql tables and loads them to AWS RDS.
+- If you dont want to update the database, **Connect_Database.ipynb** loads the existing tables and performs a sql join using sqlalchemy. Next it converts all the existing tables to dataframes for further analysis on other notebooks.
+- ERD and schema are available in **ERD and Schema** folder.
 
+## Machine learning model
 - **Predict_Stocks.ipynb** uses **Connect_Database.ipynb** to connect to existing AWS RDS tables and load the dataframes. And then uses Ridge Model in regression to perform stock prediction. 
 - We use three methods to calculate Stock price increse from investor confidence.Then, we choose one of them to calculate test and train. 
 - - 3 Methonds choose see **Stock_Price_valuation_ 3_Methods.ipynb**
