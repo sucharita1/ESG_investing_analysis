@@ -1,8 +1,7 @@
-#ignore stock_price_analysis
-stock_price_analysis.ipynb
-
-#ignore Group2Project_Tableau_v3_db_connected.twb
+# ignore these files
+figure.png
 Group2Project_Tableau_v3_db_connected.twb
+stock_analysis.ipynb
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
