@@ -143,7 +143,7 @@ The presentation is available [here](https://github.com/mododds/Group_2_Project/
 ## Environment dependencies and gitignore files
 The environment dependencies can be found in [requirements.txt](https://github.com/mododds/Group_2_Project/blob/c6ef83c033a2239e7f400a69e772671eb6fa68dc/requirements.txt)
 
-The ignored files can be found in [.gitignore](https://github.com/mododds/Group_2_Project/blob/c6ef83c033a2239e7f400a69e772671eb6fa68dc/.gitignore)
+
 
 
 ## Our Team
