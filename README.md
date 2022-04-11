@@ -1,6 +1,145 @@
-# Group 2 Team Project
+# ESG (Environmental, Social, and Governance) Investing and Analysis
 
-## ESG (Environmental, Social, and Governance) 
+## Overview
+### Background
+Comapnies have always found it a challenge to balance generating a healthy profit for their stakeholder's as well as ensuring that they are performing to the highest standards in ESG (Environmental, Social, and Governance). As world stands at the brink of global warming upto 3.5 degress at end of century, population rising to 9.7 billion by 2050 the only way to ensure a sustainable and inclusive economic and human developement is by hightening our contribution and focus on ESG.
+
+### Purpose
+We are building a machine learning model to 
+- Help you in ESG investing
+- Figure out if ESG scores have any relation to a stock's market performance
+
+## Questions we hope to answer
+- Do ESG scores affect company's bottomline?
+- What are the RED flags that affect ESG ratings?
+- Is there a correlation between stock market performance and ESG ratings?
+- Which industries have highest ESG scores?
+- How can we help you in ESG investing?
+
+## Technologies used
+* AWS RDS Postgres 12 for database on Cloud 
+* Jupyter Notebook and python libraries like pandas, numpy, seaborn, matplotlib etc. for data cleaning and analysis
+* yesg and yfinance APIs for data extraction from yahoo finance
+* fbprophet, Sklearn for machine learning
+
+## Data Extraction and Preliminary Data Processing for ML
+Using [api_data_extraction.ipynb](https://github.com/mododds/Group_2_Project/blob/775cca5fe9d84b68a5c36e06f38b082d5ef1a464/api_data_extraction.ipynb) to
+extract the data from yfinance and yesg and then clean the data.
+![data_extraction_cleaning.png](https://github.com/mododds/Group_2_Project/blob/1461bd88e15ecd94d159db9e51afa0bfe24df965/Images/data_extraction_cleaning.png)
+
+
+## Database connection
+[Connect_Database.ipynb](https://github.com/mododds/Group_2_Project/blob/775cca5fe9d84b68a5c36e06f38b082d5ef1a464/Connect_Database.ipynb) takes the database password from you and connects to the database. If you want to connect to existing data. When you want to update the tables from time to time as company financials change you need to make the variable refresh_table = 'Y' it calls **api_data_extraction.ipynb**. It collects the data from yahoo finance using yfinance and yesg apis converts them into dataframes and cleans the data for null , duplicate values and wrong datatypes and returns the dataframes to **Connect_Database.ipynb**.
+- **Connect_Database.ipynb** converts the dataframes into sql tables and loads them to AWS RDS.
+- If you dont want to update the database, **Connect_Database.ipynb** loads the existing tables and performs a sql join using sqlalchemy. Next it converts all the existing tables to dataframes for further analysis on other notebooks.
+![connect_database.png](https://github.com/mododds/Group_2_Project/blob/1461bd88e15ecd94d159db9e51afa0bfe24df965/Images/connect_database.png)
+
+- ERD and schema are available [here](https://github.com/mododds/Group_2_Project/tree/esg_eda_ml/ERD%20and%20Schema)
+
+
+## Machine Learning
+### Model 1:
+Regression model for correlation between ESG and investor's confidence
+- We use three methods to calculate Stock price increase from investor confidence.Then, we choose one of them to calculate test and train. 
+- - 3 Methonds choose see **Stock_Price_valuation_ 3_Methods.ipynb**
+- - train and test see [PS_Method_Machine_Learning _Model.ipynb](https://github.com/mododds/Group_2_Project/blob/1461bd88e15ecd94d159db9e51afa0bfe24df965/PS_Method_Machine_Learning%20_Model.ipynb)
+
+#### Preliminary Data Preprocessing 
+- Data clean: remove the null and inf 
+- Data intergration:
+   - Independent Variable: ESG Score
+   - Dependent Variable:Value of Stock Price change from investor confidence
+- Data reduction: Remove the outlier, if amount is over 3*averagae of Dependent Variable
+#### Description of preliminary feature engineering and preliminary feature selection, including their decision-making process
+- We want to measure how ESG affects stock prices. Firstly, we should calculate passive value by stock valuation. Then, MV value minus passive value that is equal to value of Stock Price change from investor confidence. We get all finanical information from our dataset, then we calculate value of Stock Price change from investor confidence More detail and analysis. Finally, we create a Liner Regression.   see **Stock_Price_valuation_ 3_Methods.ipynb**
+- Why we choose EGS? ESG is not only reason to influence stock price,but it cover most of internal factors and it can also influence external factors. In our model, we assume the ESG is only reason to inflence the stock price.
+
+#### Benefit
+- All the companies can use this method because sales are always positive. Like the dividend method, if the current year dividend is Zero, we cannot use it.
+- No human intervention is needed (automation)
+- It shows a negative relationship between the value of Stock Price increase from investor confidence and ESG Score.
+
+#### Limitation
+- This method is comparable to companies(industry). We need to make sure all the companies in the same industry must have a similar size. ex: Sobey and Walmart are supermarkets, but one is national, and another is global
+- The K-value is 0.30, which is higher than 0.05. We cannot use this model to measure how many prices of ESG influences the stock price, but it shows us ESG has a negative relationship with the stock price.
+- Our model only uses 2022 information, which can show you a short-term relationship. If we can add past year information, it will establish an exact relationship.
+- ESG is not only reason to influence stock price
+#### Improvement
+- More Data, Increasing Scope and Time. In this model, we use 89 companies, that are not enough, and we only get the 2022 ESG score because the old information is not for the public. 
+#### Train and Test
+We have 55 stock info, we choose 11 as the Test set and other is Train set
+![Test_VS_Train.png](https://github.com/mododds/Group_2_Project/blob/1461bd88e15ecd94d159db9e51afa0bfe24df965/Images/Test_VS_Train.png)
+
+### Model 2:
+Prediction of stocks using Ridge linear regression vs fbprophet
+#### Ridge Linear Regression for stock prediction
+This model was the first model that was used the code can be found in [Predict_Stocks.ipynb](https://github.com/mododds/Group_2_Project/blob/1461bd88e15ecd94d159db9e51afa0bfe24df965/Predict_Stocks.ipynb)
+
+- This model was able to predict stocks using ridge linear regression but it could predict a few days ahead because it could not handle non linearity and seasonality often seen when we want to predict stocks into the future.
+
+#### fbprophet for stock prediction
+This was the model finally chosen as it could predict the stock close price for the next 365 days and allow investors to do ESG investing.
+- Stock prediction beyond a few days needs to handle seasonality, shift in trends, outliers etc. which is not possible using linear regression.
+- fbprophet is does not require much prior knowledge of forecasting time series data as it can automatically find seasonal trends with a set of data and offers easy to understand parameters.
+
+#### Preliminary Data Preprocessing 
+- Data clean: check there no null or inf
+- Data intergration:
+   - ds - Date 
+   - y: Closing Price of the stock
+ - Data Reduction:
+    - Five years of historical data on 55 stocks was obtained including Open, Close, High, Low, Adj. Close
+    - Only Close Value was chosen to the predicted
+ 
+#### Description of preliminary feature engineering and preliminary feature selection, including their decision-making process
+Model parameters were selected based on the performance of the model. fbprophet allows us to define holidays, sesonality , type of growth etc. for hyperparamter tuning.
+    1. First set of parameters was linear with daily seasonality but it lead to higher values of **Mean Absolute Percentage Error(MAPE)**
+    2. Second set of parameters included:
+    ![fbprophet_model_parameters.png](https://github.com/mododds/Group_2_Project/blob/54e5fbee9078028acee33a189c978d0d0ab2fe8a/Images/fbprophet_model_parameters.png)
+The second set of parameters gave better values of MAPE, so it the model parameters that was chosen.
+#### Benefits
+- It does not require much prior knowledge of forecasting time series data as it can automatically find seasonal trends with a set of data and offers easy to understand parameters.
+- Based on an additive model where non-linear trends are fit with yearly, weekly, and daily seasonality, plus holiday effects.
+- Prophet is robust to missing data and shifts in the trend, and typically handles outliers well.
+- fbprophet has its own methods for plots, scoring etc. So, you once you have fbprophet you may not need many other additional libraries.
+
+#### Limitations
+- Prophet is generally recommended only for time series where the only informative signals are trends, and the residuals are just noise.
+- There are other models like ARIMA can consistenly outperform Prophet when trends are not too important.
+#### Improvement
+- Bring the MAPE down by rigorous hyperparamter tuning the model.
+- Look into ARIMA, LSTM and use the model that gives us the best prediction.
+#### Train and Test
+fbprophet has its own diagnostics tolls like cross_validation, performance_metrics to train and test the data.
+The training data was first 1095 days and the test data was divided into 3 forecasts with cutoffs between 2020-03-20 00:00:00 and 2021-03-15 00:00:00. The average mape for all the 55 stocks was : 0.15319351039177415
+![MAPE_test_train.png](https://github.com/mododds/Group_2_Project/blob/54e5fbee9078028acee33a189c978d0d0ab2fe8a/Images/MAPE_test_train.png)
+
+The code for the fbprophet model can be found in [fbprophet_Predict_Stocks.ipynb](https://github.com/mododds/Group_2_Project/blob/54e5fbee9078028acee33a189c978d0d0ab2fe8a/fbprophet_Predict_Stocks.ipynb)
+
+- The final forecasts for all the stocks can be found [here](https://github.com/mododds/Group_2_Project/tree/main/Images/forecast)
+- The final Mean Absolute Percentage Error(MAPE) for all the stocks can be found [here](https://github.com/mododds/Group_2_Project/tree/main/Images/mape)
+
+A sample forecast for Apple stocks is :
+![AAPL.png](https://github.com/mododds/Group_2_Project/blob/54e5fbee9078028acee33a189c978d0d0ab2fe8a/Images/forecast/AAPL.png)
+
+A sample Mean Absolute Percentage Error(MAPE) for  Apple stock is:
+![AAPL.png](https://github.com/mododds/Group_2_Project/blob/54e5fbee9078028acee33a189c978d0d0ab2fe8a/Images/mape/AAPL.png)
+
+## Analysis 
+- [ESG_Analysis.ipynb](https://github.com/mododds/Group_2_Project/blob/54e5fbee9078028acee33a189c978d0d0ab2fe8a/ESG_Analysis.ipynb) uses **Connect_Database.ipynb** to access the database and uses the esg_info_df to perform analysis on ESG parameters, red flags relations between ESG and ROE to ensure that data is suitable for machine learning.
+- [stock_analysis.ipynb](https://github.com/mododds/Group_2_Project/blob/54e5fbee9078028acee33a189c978d0d0ab2fe8a/stock_analysis.ipynb) uses **Connect_Database.ipynb** to access the database and uses the stocks_df to perform analysis on stock prices, volumes and daily returns to ensure that data is suitable for machine learning.
+
+## Dashboard 
+Tableau is chosen to visualize the dashboard it connects to the AWS RDS postgres and performs the visualizations.
+![Tableau_connecting_tables.png](https://github.com/mododds/Group_2_Project/blob/54e5fbee9078028acee33a189c978d0d0ab2fe8a/Images/Tableau_connecting_tables.png)
+
+The tables contains the data from yahoo finance as well as the tables generated from Regression based mahcine learning for esg and stock market correlation as well as stock predictions.
+
+The final tableau storyboard presentation is available in [here](https://public.tableau.com/app/profile/sucharita.bhattacharjee/viz/ESG_Analysis/ESGAnalysisforpredictedstocks?publish=yes)
+
+## presentation 
+The presentation is avaiable [here](https://github.com/mododds/Group_2_Project/blob/54e5fbee9078028acee33a189c978d0d0ab2fe8a/ESG%20-%20Group%202%20Project.pptx)
+
 
 ## Our Team
 - Sucharita Bhattacharjee
@@ -8,128 +147,11 @@
 - Yicong Luo
 - Sachin Nabar
 
-
-## Our Question
-Do sustainability models help predict a company’s overall Performance?
-- Stock values
-- Brand image
-- Employee retention
-- Customer retention
-
-## Branches
-### esg_data_extraction
-- Primary contributor: Sucharita Bhattacharjee
-- Primary focus: Data extraction pre-processing
-- Number of commits (as of March 20, 2022): 14
-
-### project_database
-- Primary contributor: Sachin
-- Primary focus: Database set up and data manipulation
-- Number of commits (as of March 20, 2022): 5
-
-### stock_price
-- Primary contributor: Yicong
-- Primary focus: Machine Learning module
-- Number of commits (as of March 20, 2022): 2
-
-### project_visualizations
-- Primary Contibutor: Monica
-- Primary Focus: Visualization & presentation of data
-- Number of commits (as of March 20, 2022): 13
-
-## Week One Roles: 
-
-- Monica: GitHub set up, [Goggle Sheets tracker](https://docs.google.com/spreadsheets/d/1Tx0D1V8oL79opbk0O3R_YSJzzYVRPobm1d6glIpdfCw/edit?usp=sharing) for deliverables
-- Sucharita: Data Gathering (Yahoo Finance & MarketBeat)
-- Sachin: DBA (Create ERD and Mock up DB on PGAdmin)
-- Yicong: Mock up Machine Learning
-- Monica: Mock up visualizings (Tableau) 
-
-### Data Gathering (Yahoo Finance & MarketBeat)
-- Used notebook **Scrape_ESG.ipynb** to collect data  about 112 companies in  S&P 500 wiki and Forbes just 100 and used marketbeat.com to scrape the ESG related data and saved the data in Stocks_with_ESG.csv
-
-- Used notebook **Extract_stocks_time_data.ipynb**  using yfinance python wrapper to get the following data from yahoo fianance
-    - to collect stock performance of 112 companies since last five years and saved as Stocks_with_time.csv
-    - to Collect company info like name , state, city , sector, marketcap, 52 week high etc. and saved as Stocks_info.csv
-
-- Used notebook **final_tables_after_EDA.ipynb** to perform preliminary EDA and ensure that 
-    - all three tables have the data about the same 112 companies and companies with no data is deleted. 
-    - the no of fields is reduced to exclude unwanted fields.
-    - the fields in the dataframe have the correct object type.
-    - the Stocks_with_ESG.csv is converted into ESG_df and broken into society_ESG.csv, health_ESG.csv, knowledge_ESG.csv, environment_ESG.csv, net_impact_ESG.csv for further analysis and loading to postgres.
-
-All the csv files can be found in **Resources/Postgres_Input**.
-
-- Based on the csv files an ERD diagram has been created which can be viewed here **ERD_TABLES** 
-
-## Mockup Database
-- An ASW RDS database is created with all the tables as shown in the ERD. The tables can be found in **AWS RDS DATBASE.png**
-- Used notebook **Connect_Database.ipynb**
-    - to connect to aws server
-    - select and print data from table
-
-## Mockup Machine learning
-- Before predicting the stocks using complex neural network models a linear regression model is used as a mockup,  which can be found in **Stock_Price_valuation.ipynb**
-
-## Week2 and Week3 roles:
-- The square will focus on the machine learning model. [Yicong]
-- The triangle role is involved in upscaling the project's database. [Sucharita]
-- The circle role will continue to refine the analysis. [Sachin]
-- The X role will focus on the team's dashboard. [Monica]
-  
-## Week 4 roles: 
-- The square will focus on the machine learning model. [Yicong]
-- The triangle role is involved in upscaling the project's database. [Sucharita]
-- The circle role will continue to refine the analysis. [Sachin]
-- The X role will focus on the team's dashboard. [Monica]
-
-## Data Extraction and connecting to database
-- **Connect_Database.ipynb** takes the database password from you and connects to the database. If you want to connect to existing data. When you want to update the tables from time to time as company financials change you need to make the variable refresh_table = 'Y' it calls **api_data_extraction.ipynb**. It collects the data from yahoo finance using yfinance and yesg apis converts them into dataframes and cleans the data for null , duplicate values and wrong datatypes and returns the dataframes to **Connect_Database.ipynb**.
-- **Connect_Database.ipynb** converts the dataframes into sql tables and loads them to AWS RDS.
-- If you dont want to update the database, **Connect_Database.ipynb** loads the existing tables and performs a sql join using sqlalchemy. Next it converts all the existing tables to dataframes for further analysis on other notebooks.
-- ERD and schema are available in **ERD and Schema** folder.
-
-## Machine learning model
-- **Predict_Stocks.ipynb** uses **Connect_Database.ipynb** to connect to existing AWS RDS tables and load the dataframes. And then uses Ridge Model in regression to perform stock prediction. 
-- We use three methods to calculate Stock price increse from investor confidence.Then, we choose one of them to calculate test and train. 
-- - 3 Methonds choose see **Stock_Price_valuation_ 3_Methods.ipynb**
-- - train and test see **PS_Method_Machine_Learning _Model.ipynb**
-### Preliminary Data Preprocessing 
-- Data clean: remove the null and inf 
-- Data untergration:
-   - Independent Variable: ESG Score
-   - Dependent Variable:Value of Stock Price change from investor confidence
-- Data reduction: Remove the outlier, if amount is over 3*averagae of Dependent Variable
-### Description of preliminary feature engineering and preliminary feature selection, including their decision-making process
-- We want to measure how ESG affects stock prices. Firstly, we should calculate passive value by stock valuation. Then, MV value minus passive value that is equal to value of Stock Price change from investor confidence. We get all finanical information from our dataset, then we calculate value of Stock Price change from investor confidence More detail and analysis. Finally, we create a Liner Regression.   see **Stock_Price_valuation_ 3_Methods.ipynb**
-- Why we choose EGS? ESG is not only reason to influence stock price,but it cover most of internal factors and it can also influence external factors. In our model, we assume the ESG is only reason to inflence the stock price
-### Model we choos
-Liner Regression
-### Benefit
-- All the companies can use this method because sales are always positive. Like the dividend method, if the current year dividend is Zero, we cannot use it.
-- No human intervention is needed (automation)
-- It shows a negative relationship between the value of Stock Price increase from investor confidence and ESG Score.
-### Limitation
-- This method is comparable to companies(industry). We need to make sure all the companies in the same industry must have a similar size. ex: Sobey and Walmart are supermarkets, but one is national, and another is global
-- The K-value is 0.30, which is higher than 0.05. We cannot use this model to measure how many prices of ESG influences the stock price, but it shows us ESG has a negative relationship with the stock price.
-- Our model only uses 2022 information, which can show you a short-term relationship. If we can add past year information, it will establish an exact relationship.
-- ESG is not only reason to influence stock price
-### Improvement
-- More Data, Increasing Scope and Time. In this model, we use 89 companies, that are not enough, and we only get the 2022 ESG score because the old information is not for the public. 
-### Train and Test
-We have 89 stock info, we choose 21 as the Test set and other is Train set
-
-
-## Analysis 
-- **ESG_Analysis.ipynb** uses **Connect_Database.ipynb** to to connect to existing AWS RDS tables and load the dataframes. And then does analysis on the data to confirm that the data types are correct, there is no duplicate, null data, whether the esg scores have a normal distibution etc.
-
-
-## Dashboard & Presentation
-- Our team presentation is located [here](https://github.com/mododds/Group_2_Project/blob/main/ESG%20-%20Group%202%20Project.pptx).
-- [Google slides version](https://docs.google.com/presentation/d/1v7ZUbO-Ruz_PWBoh0hCuRYt4P9jFr0jfmyfjzph_FJQ/edit#slide=id.g1f88252dc4_0_203) of the presentation
-- The Tableau dashboard is available in **Dashboard** folder as **[ESG_Analysis.twb](https://github.com/mododds/Group_2_Project/blob/main/Dashboard/ESG_Analysis.twb)**.
-
-
+### Week 4 Roles:
+The Square Role will focus on managing the git repo [Sucharita]
+The Triangle Role will focus on updating the slides and presenation [Monica]
+The Circle Role will focus on finalizing the dashboard [Yicong]
+The X Roles will focus on  testing & validating the Code [Sachin]
 
 Credits:
 - https://www.forbes.com/just-companies/#5d410d762bf0
