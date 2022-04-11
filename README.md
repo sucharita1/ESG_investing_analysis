@@ -69,10 +69,10 @@ Regression model for correlation between ESG and investor's confidence
 #### Train and Test
 We have 55 stock info, we choose 11 as the Test set and other is Train set
 #### current accuracy score
-A perfect mean absolute/squared error value is 0.0, which means that all predictions matched the expected values exactly.
-This model current accuracy score is very low:
-- Mean squared error value is 62012.18
-- Mean absolute error value is 180.48
+A perfect R-squared is 0.0, which means that all predictions matched the expected values exactly.
+This model current accuracy score is very high.
+R-squared is 0.017
+
 
 ### Change In Week #3
 We delete 30  high volatile stock. Week #2 this model show us a negative model, but now it is positive.
