@@ -65,7 +65,7 @@ Regression model for correlation between ESG and investor's confidence
 - Our model only uses 2022 information, which can show you a short-term relationship. If we can add past year information, it will establish an exact relationship.
 - ESG is not only reason to influence stock price
 #### Improvement
-- More Data, Increasing Scope and Time. In this model, we use 89 companies, that are not enough, and we only get the 2022 ESG score because the old information is not for the public. 
+- More Data, Increasing Scope and Time. In this model, we use 55 companies, that are not enough, and we only get the 2022 ESG score because the old information is not for the public. 
 #### Train and Test
 We have 55 stock info, we choose 11 as the Test set and other is Train set
 #### current accuracy score
@@ -81,14 +81,17 @@ We delete 30  high volatile stock. Week #2 this model show us a negative model, 
 ### Model 2:
 Prediction of stocks using Ridge linear regression vs fbprophet
 #### Ridge Linear Regression for stock prediction
-This model was the first model that was used the code can be found in [Predict_Stocks.ipynb](https://github.com/mododds/Group_2_Project/blob/1461bd88e15ecd94d159db9e51afa0bfe24df965/Predict_Stocks.ipynb)
+This model was the linear regrssion model that was used to predict stocks the code can be found in [Predict_Stocks.ipynb](https://github.com/mododds/Group_2_Project/blob/1461bd88e15ecd94d159db9e51afa0bfe24df965/Predict_Stocks.ipynb)
 
-- This model was able to predict stocks using ridge linear regression but it could predict a few days ahead because it could not handle non linearity and seasonality often seen when we want to predict stocks into the future.
-
+![Ridge model](https://github.com/mododds/Group_2_Project/blob/ea82183ccca0f696953ba72a1c2f3d903e0427d3/Images/Stocks%20Prediction%20using%20regression.png)
+- This model was able to predict stocks using ridge linear regression but it could predict a few days ahead because it could not handle non linearity and seasonality often seen when we want to predict stocks into the future. A sample code can be seen as follows:
+![Stock_prediction](https://github.com/mododds/Group_2_Project/blob/ea82183ccca0f696953ba72a1c2f3d903e0427d3/Images/Stock_prediction.png)
+### Model 3:
 #### fbprophet for stock prediction
 This was the model finally chosen as it could predict the stock close price for the next 365 days and allow investors to do ESG investing.
 - Stock prediction beyond a few days needs to handle seasonality, shift in trends, outliers etc. which is not possible using linear regression.
 - fbprophet is does not require much prior knowledge of forecasting time series data as it can automatically find seasonal trends with a set of data and offers easy to understand parameters.
+![fbprophet_flow_diagram](https://github.com/mododds/Group_2_Project/blob/ea82183ccca0f696953ba72a1c2f3d903e0427d3/Images/fbprophet%20flow%20diagram.png)
 
 #### Preliminary Data Preprocessing 
 - Data clean: check there no null or inf
@@ -128,9 +131,11 @@ The code for the fbprophet model can be found in [fbprophet_Predict_Stocks.ipynb
 - The final Mean Absolute Percentage Error(MAPE) for all the stocks can be found [here](https://github.com/mododds/Group_2_Project/tree/main/Images/mape)
 
 A sample forecast for Apple stocks is :
+
 ![AAPL.png](https://github.com/mododds/Group_2_Project/blob/54e5fbee9078028acee33a189c978d0d0ab2fe8a/Images/forecast/AAPL.png)
 
 A sample Mean Absolute Percentage Error(MAPE) for  Apple stock is:
+
 ![AAPL.png](https://github.com/mododds/Group_2_Project/blob/54e5fbee9078028acee33a189c978d0d0ab2fe8a/Images/mape/AAPL.png)
 
 ## Analysis 
