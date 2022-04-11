@@ -69,8 +69,8 @@ Regression model for correlation between ESG and investor's confidence
 #### Train and Test
 We have 55 stock info, we choose 11 as the Test set and other is Train set
 #### current accuracy score
-A perfect R-squared is 0.0, which means that all predictions matched the expected values exactly.
-This model current accuracy score is very high.
+A perfect R-squared is 1, which means that all predictions matched the expected values exactly.
+This model current accuracy score is very low.
 R-squared is 0.017
 
 
