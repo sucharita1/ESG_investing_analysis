@@ -146,7 +146,7 @@ The tables contains the data from yahoo finance as well as the tables generated 
 The final tableau storyboard presentation is available in [here](https://public.tableau.com/app/profile/sucharita.bhattacharjee/viz/ESG_Analysis/ESGAnalysisforpredictedstocks?publish=yes)
 
 ## presentation 
-The presentation is available [here](https://github.com/mododds/Group_2_Project/blob/54e5fbee9078028acee33a189c978d0d0ab2fe8a/ESG%20-%20Group%202%20Project.pptx)
+The presentation is available [here](https://docs.google.com/presentation/d/1v7ZUbO-Ruz_PWBoh0hCuRYt4P9jFr0jfmyfjzph_FJQ/edit?usp=sharing)
 
 ## Environment dependencies and gitignore files
 The environment dependencies can be found in [requirements.txt](https://github.com/mododds/Group_2_Project/blob/c6ef83c033a2239e7f400a69e772671eb6fa68dc/requirements.txt)
