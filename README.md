@@ -138,7 +138,7 @@ The tables contains the data from yahoo finance as well as the tables generated 
 The final tableau storyboard presentation is available in [here](https://public.tableau.com/app/profile/sucharita.bhattacharjee/viz/ESG_Analysis/ESGAnalysisforpredictedstocks?publish=yes)
 
 ## presentation 
-The presentation is avaiable [here](https://github.com/mododds/Group_2_Project/blob/54e5fbee9078028acee33a189c978d0d0ab2fe8a/ESG%20-%20Group%202%20Project.pptx)
+The presentation is available [here](https://github.com/mododds/Group_2_Project/blob/54e5fbee9078028acee33a189c978d0d0ab2fe8a/ESG%20-%20Group%202%20Project.pptx)
 
 
 ## Our Team
@@ -148,10 +148,10 @@ The presentation is avaiable [here](https://github.com/mododds/Group_2_Project/b
 - Sachin Nabar
 
 ### Week 4 Roles:
-The Square Role will focus on managing the git repo [Sucharita]
-The Triangle Role will focus on updating the slides and presenation [Monica]
-The Circle Role will focus on finalizing the dashboard [Yicong]
-The X Roles will focus on  testing & validating the Code [Sachin]
+- The Square Role will focus on managing the git repo [Sucharita]
+- The Triangle Role will focus on updating the slides and presenation [Monica]
+- The Circle Role will focus on finalizing the dashboard [Yicong]
+- The X Roles will focus on  testing & validating the Code [Sachin]
 
 Credits:
 - https://www.forbes.com/just-companies/#5d410d762bf0
