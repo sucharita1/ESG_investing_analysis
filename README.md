@@ -153,6 +153,16 @@ The final tableau storyboard presentation is available in [here](https://public.
 ## presentation 
 The presentation is available [here](https://docs.google.com/presentation/d/1v7ZUbO-Ruz_PWBoh0hCuRYt4P9jFr0jfmyfjzph_FJQ/edit?usp=sharing)
 
+## What could have been done differently
+* The machine learning model for correlation between ESG and stock prices had only 55 datapoints . We hoped to get historical esg data but it was at a very high price on bloomberg, quandl etc. 
+   - So we just ran the ML on 55 datapoints but it gave us r2 of .017 so we could not use the model. 
+   - But,  we already had the scripts for getting stock and esg data from yfinance api and appending to database.we could have generated our data by getting 100 stocks per day and by now we would have 2500 datapoints easily. We could have generated out own dataset on the go.
+
+## Recommendation for future analysis:
+- Improve the MAPE for fbprophet Model.
+- Explore ARIMA, SARIMA for stock prediction
+- Update the stock and esg data periodically so that the analysis stays relevent.
+
 ## Environment dependencies and gitignore files
 The environment dependencies can be found in [requirements.txt](https://github.com/mododds/Group_2_Project/blob/c6ef83c033a2239e7f400a69e772671eb6fa68dc/requirements.txt)
 
