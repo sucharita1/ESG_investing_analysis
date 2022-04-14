@@ -165,11 +165,11 @@ The ignored files can be found in [.gitignore](https://github.com/mododds/Group_
 - Yicong Luo
 - Sachin Nabar
 
-### Week 4 Roles:
-- The Square Role will focus on managing the git repo [Sucharita]
-- The Triangle Role will focus on updating the slides and presenation [Monica]
-- The Circle Role will focus on finalizing the dashboard [Yicong]
-- The X Roles will focus on  testing & validating the Code [Sachin]
+### Final week Roles:
+- Square: Final updates to the README.md on the project repository [Sucharita]
+- Circle: Ensure all applicable PRs are merged in [Yicong]
+- Triangle: Final touches on visual aspects with the presentation and dashboard. [Monica]
+- X: Review the rubric and ensure the project meets the requirements, and test the code. [Sachin]
 
 Credits:
 - https://www.forbes.com/just-companies/#5d410d762bf0
@@ -181,3 +181,4 @@ Credits:
 - https://deepnote.com/@reslan-al-tinawi/Visualizing-data-with-seaborn-plotly-2hf4mb-sTnC9LyUXbTVKDw
 - https://community.plotly.com/t/how-to-visualize-3-columns-with-boolean-values/36181/2
 - https://help.tableau.com/current/pro/desktop/en-us/dashboards.htm
+- https://facebook.github.io/prophet/docs/quick_start.html#python-api
