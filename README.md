@@ -151,7 +151,7 @@ The tables contains the data from yahoo finance as well as the tables generated 
 The final tableau storyboard presentation is available in [here](https://public.tableau.com/app/profile/sucharita.bhattacharjee/viz/ESG_Analysis/ESGAnalysisforpredictedstocks?publish=yes)
 
 ## Presentation 
-The presentation provides a glimpse about our project **ESG and You** is available [here](https://docs.google.com/presentation/d/1v7ZUbO-Ruz_PWBoh0hCuRYt4P9jFr0jfmyfjzph_FJQ/edit?usp=sharing)
+The presentation provides a glimpse about our project **ESG and You** is available [here](https://docs.google.com/presentation/d/1CQRtlGkKOA2NHdxgLHuaUuumPaWmU9E0O-gZS-EAxo8/edit?usp=sharing)
 
 ## What could have been done differently
 * The machine learning model for correlation between ESG and stock prices had only 55 datapoints . We hoped to get historical esg data but it was at a very high price on bloomberg, quandl etc. 
