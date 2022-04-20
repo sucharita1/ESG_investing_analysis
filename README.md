@@ -17,7 +17,7 @@ We are building a machine learning model to
 - How can we help you in ESG investing?
 
 ## Technologies used
-* AWS RDS Postgres 12 for database on Cloud 
+* AWS RDS Postgres 12 for database on Cloud.
 * Jupyter Notebook and python libraries like pandas, numpy, seaborn, matplotlib etc. for data cleaning and analysis
 * yesg and yfinance APIs for data extraction from yahoo finance
 * fbprophet, Sklearn for machine learning
@@ -44,39 +44,14 @@ Regression model for correlation between ESG and investor's confidence
 - - 3 Methonds choose see **Stock_Price_valuation_ 3_Methods.ipynb**
 - - train and test see [PS_Method_Machine_Learning _Model.ipynb](https://github.com/mododds/Group_2_Project/blob/1461bd88e15ecd94d159db9e51afa0bfe24df965/PS_Method_Machine_Learning%20_Model.ipynb)
 
-#### Preliminary Data Preprocessing 
-- Data clean: remove the null and inf 
-- Data intergration:
-   - Independent Variable: ESG Score
-   - Dependent Variable:Value of Stock Price change from investor confidence
-- Data reduction: Remove the outlier, if amount is over 3*averagae of Dependent Variable
 #### Description of preliminary feature engineering and preliminary feature selection, including their decision-making process
 - We want to measure how ESG affects stock prices. Firstly, we should calculate passive value by stock valuation. Then, MV value minus passive value that is equal to value of Stock Price change from investor confidence. We get all finanical information from our dataset, then we calculate value of Stock Price change from investor confidence More detail and analysis. Finally, we create a Liner Regression.   see **Stock_Price_valuation_ 3_Methods.ipynb**
 - Why we choose EGS? ESG is not only reason to influence stock price,but it cover most of internal factors and it can also influence external factors. In our model, we assume the ESG is only reason to inflence the stock price.
 
-#### Benefit
-- All the companies can use this method because sales are always positive. Like the dividend method, if the current year dividend is Zero, we cannot use it.
-- No human intervention is needed (automation)
-- It shows a positive relationship between the value of Stock Price increase from investor confidence and ESG Score.
-
-#### Limitation
-- This method is comparable to companies(industry). We need to make sure all the companies in the same industry must have a similar size. ex: Sobey and Walmart are supermarkets, but one is national, and another is global
-- The K-value is 0.35, which is higher than 0.05. We cannot use this model to measure how many prices of ESG influences the stock price, but it shows us ESG has a positive relationship with the stock price.
-- Our model only uses 2022 information, which can show you a short-term relationship. If we can add past year information, it will establish an exact relationship.
-- ESG is not only reason to influence stock price
-#### Improvement
-- More Data, Increasing Scope and Time. In this model, we use 55 companies, that are not enough, and we only get the 2022 ESG score because the old information is not for the public. 
-#### Train and Test
-We have 55 stock info, we choose 11 as the Test set and other is Train set
 #### current accuracy score
 A perfect R-squared is 1, which means that all predictions matched the expected values exactly.
 This model current accuracy score is very low.
-R-squared is 0.017
-
-
-### Change In Week #3
-We delete 30  high volatile stock. Week #2 this model show us a negative model, but now it is positive.
-![Test_VS_Train.png](https://github.com/mododds/Group_2_Project/blob/1461bd88e15ecd94d159db9e51afa0bfe24df965/Images/Test_VS_Train.png)
+**R-squared is 0.017 so it is discarded as the dataset has only 55 datapoints too less. Our analysis requires around 1000 datapoints but ESG paramaters for most companies as well as historical ESG data is not available freely. So this model is discarded**
 
 ### Model 2:
 Prediction of stocks using Ridge linear regression vs fbprophet
@@ -153,15 +128,11 @@ The final tableau storyboard presentation is available in [here](https://public.
 ## Presentation 
 The presentation provides a glimpse about our project **ESG and You** is available [here](https://docs.google.com/presentation/d/1CQRtlGkKOA2NHdxgLHuaUuumPaWmU9E0O-gZS-EAxo8/edit?usp=sharing)
 
-## What could have been done differently
-* The machine learning model for correlation between ESG and stock prices had only 55 datapoints . We hoped to get historical esg data but it was at a very high price on bloomberg, quandl etc. 
-   - So we just ran the ML on 55 datapoints but it gave us r2 of .017 so we could not use the model. 
-   - But,  we already had the scripts for getting stock and esg data from yfinance api and appending to database.we could have generated our data by getting 100 stocks per day and by now we would have 2500 datapoints easily. We could have generated out own dataset on the go.
-
 ## Recommendation for future analysis:
 - Improve the MAPE for fbprophet Model.
 - Explore ARIMA, SARIMA for stock prediction
 - Update the stock and esg data periodically so that the analysis stays relevent.
+- Also AWS RDS will be replaced by CSV files as free tier benefits will ceash shortly but the code to host the project on cloud works and can be implemented easily.
 
 ## Environment dependencies and gitignore files
 The environment dependencies can be found in [requirements.txt](https://github.com/mododds/Group_2_Project/blob/c6ef83c033a2239e7f400a69e772671eb6fa68dc/requirements.txt)
@@ -170,16 +141,10 @@ The ignored files can be found in [.gitignore](https://github.com/mododds/Group_
 
 
 ## Our Team
-- Sucharita Bhattacharjee
-- Monica Dodds
-- Yicong Luo
-- Sachin Nabar
-
-### Final week Roles:
-- Square: Final updates to the README.md on the project repository [Sucharita]
-- Circle: Ensure all applicable PRs are merged in [Yicong]
-- Triangle: Final touches on visual aspects with the presentation and dashboard. [Monica]
-- X: Review the rubric and ensure the project meets the requirements, and test the code. [Sachin]
+- Sucharita Bhattacharjee- Lead Analyst - fbprophet, tableau dashboard, Database design and sqlalchemy
+- Monica Dodds - visualization
+- Yicong Luo - ml for correlation
+- Sachin Nabar - Amazon Cloud RDS
 
 Credits:
 - https://www.forbes.com/just-companies/#5d410d762bf0
