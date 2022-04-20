@@ -1,4 +1,5 @@
 # ESG (Environmental, Social, and Governance) Investing and Analysis
+![esg](https://github.com/sucharita1/ESG_investing_analysis/blob/c8ce3e8e41527c8959f624271429574a1be1bd00/Images/Tableau_Dashboard.png)
 
 ## Overview
 ### Background
